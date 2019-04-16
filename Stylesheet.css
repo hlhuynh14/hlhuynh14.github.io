@@ -1,14 +1,14 @@
 .body3 { background-color: lightblue }
 
 .body1{align-content: center;
-	background-image: url('C:\\Users\\hlhuynh14\\Desktop\\work\\fantasy books.jpg') ;
+	background-image: url('fantasy books.jpg') ;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
 	}
 .body2{align-content: center;
-	background-image: url('C:\\Users\\hlhuynh14\\Desktop\\work\\squares.png') ;
+	background-image: url('squares.png') ;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -31,7 +31,7 @@ h1{
 
 #backgroundID {
 	align-content: center;
-	background-image: url('C:\\Users\\hlhuynh14\\Desktop\\work\\wasd.jpg') ;
+	background-image: url('wasd.jpg') ;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
