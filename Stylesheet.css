@@ -118,34 +118,11 @@ div.c {
 div.d {
   text-align: justify;
 }
-img  {
-  float: left;
-}
 div.absolute {
   position: absolute;
   bottom: 10px;
   width: 50%;
   border: 3px solid #8AC007;
-}
-
-}
-
-h2 {
-  text-decoration: line-through;
-}
-
-h3 {
-  text-decoration: underline;
-}
-
-h3 {
-  text-decoration: underline overline;
-}
-div {
-  width: 200px;
-  height: 50px;
-  background-color: #eee;
-  overflow: visible;
 }
 .bottomrig {
 position: fixed;
