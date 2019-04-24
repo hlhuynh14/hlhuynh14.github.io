@@ -1,11 +1,22 @@
+
+let extratroops = 500;
+let armyroll = 500;
+let enemyarmyroll = 1000;
+let enemyboostperday = 5;
 let magicvalue= 400;
 let strengthvalue = 300;
 let rangevalue = 350;
 let strengthdefensevalue = 100;
 let magicdefensevalue = 70;
 let rangedefensevalue =100;
+let daysofaweek = 7
+let meleeunits = diceroll(armyroll) + extratroops;
+let magicunits = diceroll(armyroll) + extratroops;
+let rangeunits = diceroll(armyroll) + extratroops;
+let daysroll = diceroll(daysofaweek);
 
-let daysroll = diceroll(7);
+
+
 let randomfactor = diceroll(100);
 let randommelee = diceroll(300);
 let randommagic = diceroll(200);
@@ -13,26 +24,29 @@ let randomrange = diceroll(250);
 let randomenemymelee = diceroll(150);
 let randomenemymagic = diceroll(80);
 let randomenemyrange = diceroll(100);
-let randommelee2 = diceroll(30)
-let randommagic2 = diceroll(10)
-let randomrange2 = diceroll(20)
+let randommelee2 = diceroll(30);
+let randommagic2 = diceroll(10);
+let randomrange2 = diceroll(20);
 
-let enemymagic = 400 + (5 * daysroll);
-let enemystrength = 300 + (5 * daysroll);
-let enemyrange = 350 + (5 * daysroll);
-let enemystrengthdefense = 100 + (5 * daysroll);
-let enemymagicdefense = 70 + (5 * daysroll);
-let enemyrangedefense = 100 + (5 * daysroll);
-let enemymeleeunits = diceroll(1000) + 500;
-let enemymagicunits = diceroll(1000) + 500;
-let enemyrangeunits = diceroll(1000) + 500;
-let meleeunits = diceroll(500) + 500;
-let magicunits = diceroll(500) + 500;
-let rangeunits = diceroll(500) + 500;
-let stopbool = true
 
-let armyvalue = meleeunits + magicunits + rangeunits
-let enemyarmyvalue = enemymeleeunits + enemymagicunits + enemyrangeunits
+let enemymagic = magicvalue + (enemyboostperday * daysroll);
+let enemystrength = strengthvalue + (enemyboostperday * daysroll);
+let enemyrange = rangevalue + (enemyboostperday * daysroll);
+let enemystrengthdefense = strengthdefensevalue + (enemyboostperday * daysroll);
+let enemymagicdefense = magicdefensevalue + (enemyboostperday * daysroll);
+let enemyrangedefense = rangedefensevalue + (enemyboostperday * daysroll);
+let enemymeleeunits = diceroll(enemyarmyroll) + extratroops;
+let enemymagicunits = diceroll(enemyarmyroll) + extratroops;
+let enemyrangeunits = diceroll(enemyarmyroll) + extratroops;
+
+
+let armyvalue = meleeunits + magicunits + rangeunits;
+let enemyarmyvalue = enemymeleeunits + enemymagicunits + enemyrangeunits;
+
+gamebackground();
+status();
+start();
+
 
 
 function start() {
@@ -145,16 +159,13 @@ function archers() {
 }	
 
 function turn() {
-let whichunit = prompt("Choose either knights, mages, archers, or stop.")
+let whichunit = prompt("Choose either knights, mages, or archers.")
 if (whichunit == "knights"){ 
 knights();
 }	else if ( whichunit =="mages") {
 	mages();
 }	else if (whichunit =="archers") {
 	archers();
-}	else if (whichunit == "stop"){
-	return stopbool = false
-		
 }	else {
 	alert("Please enter knights, mages, archers, or stop!");
 	turn();
@@ -250,7 +261,8 @@ switch(training){
 }		
 }
 
-function gamebackgorund () {
+
+function gamebackground () {
 alert("War is coming to your city, the neighboring city-state wants an expansion and sees your city as an easy target! You must prepare your limited troops and supplies, then face the enemy! Show them who is boss and slaughter them all!");
 alert("Your scout has determined the invading forces.");
 alert(enemymeleeunits + " knights will be in the the enemy army.");
@@ -278,12 +290,12 @@ function status(){
 console.log("You currently have " + meleeunits + " knights.");
 console.log("You currently have " + magicunits + " mages.");
 console.log("You currently have " + rangeunits + " archers.");
-console.log(" Your knights current strength is" + " " + strengthvalue);
-console.log(" Your knights current defense is" + " " + strengthdefensevalue);
-console.log(" Your mages current magic is" + " " + magicvalue);
-console.log(" Your mages current defense is" + " " + magicdefensevalue);
-console.log(" Your archers current range is" + " " + rangevalue);
-console.log(" Your archers current defense is" + " " +rangedefensevalue);
+console.log("Your knights current strength is" + " " + strengthvalue);
+console.log("Your knights current defense is" + " " + strengthdefensevalue);
+console.log("Your mages current magic is" + " " + magicvalue);
+console.log("Your mages current defense is" + " " + magicdefensevalue);
+console.log("Your archers current range is" + " " + rangevalue);
+console.log("Your archers current defense is" + " " +rangedefensevalue);
 console.log(enemymeleeunits + " knights will be in the the enemy army.")
 console.log(enemymagicunits + " mages will be in the the enemy army.")
 console.log(enemyrangeunits + " archers will be in the the enemy army.")
@@ -294,68 +306,68 @@ function starttraining(){
 		if (randomfactor <= 100 && randomfactor > 90) {
 			alert("Nice, some civilians decided to join the defense of the city!" + " You gain " + randommelee + " knights!" );
 			meleeunits += randommelee;
-			console.log(" You gained " + randommelee + "knights.")
+			console.log("You gained " + randommelee + " knights.")
 			console.log ("You currently have " + meleeunits + " knights.");
 			randomfactor = diceroll(100);
 		}
 			else if (randomfactor <= 90 && randomfactor > 80){
 				alert("Sensing a battle, some passing magicians decided to help out!" + " You gain " + randommagic + " mages!" );
 				magicunits += randommagic;
-				console.log(" You gained " + randommagic + "mages.")
+				console.log("You gained " + randommagic + " mages.")
 				console.log ("You currently have " + magicunits + " mages.");
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 80 && randomfactor > 70){
 				alert("A mercenary group coming for quests have decided to make some money by joining the defense of your city!" + " You gain " + randomrange + " archers!");
 				rangeunits += randomrange;
-				console.log(" You gained " + randomrange + "archers.")
+				console.log("You gained " + randomrange + "archers.")
 				console.log ("You currently have " + rangeunits + " archers.");
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 70 && randomfactor > 60){
 				alert("Not enough equipment for the enemy army has been made , some enemy knights have left due to protest!" + " Enemy army has lost " + randomenemymelee + " knights!");
 				enemymeleeunits -= randomenemymelee;
-				console.log(" The enemy lost " + randomenemymelee + "knights.")
-				console.log ("The enemy have " + enemymeleeunits + " knights.");
+				console.log("The enemy lost " + randomenemymelee + "knights.")
+				console.log ("The enemy currently have " + enemymeleeunits + " knights.");
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 60 && randomfactor > 50){
-				alert("An accidental explosion has cripple some enemy mages!" + "Enemy army has lost " + randomenemymagic + " mages!");
+				alert("An accidental explosion has cripple some enemy mages!" + " Enemy army has lost " + randomenemymagic + " mages!");
 				enemymagicunits -= randomenemymagic;
-				console.log(" The enemy lost " + randomenemymagic + "mages.")
-				console.log ("The enemy have " + enemymagicunits + " mages.");
+				console.log("The enemy lost " + randomenemymagic + " mages.")
+				console.log ("The enemy currently have " + enemymagicunits + " mages.");
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 50 && randomfactor > 40){
-				alert("Short supply of food has cause some of the enemy troops to desert their army!" + "Enemy army has lost " + randomenemyrange + " archers!");
+				alert("Short supply of food has cause some of the enemy troops to desert their army!" + " Enemy army has lost " + randomenemyrange + " archers!");
 				enemyrangeunits -= randomenemyrange;
-				console.log(" The enemy lost " + randomenemyrange + "archers.")
-				console.log ("The enemy have " + enemyrangeunits + " archers.");
+				console.log("The enemy lost " + randomenemyrange + " archers.")
+				console.log ("The enemy currently have " + enemyrangeunits + " archers.");
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 40 && randomfactor > 30){
-				alert("Dispute on the walls has cause some men to die!" + "You lost " + randommelee2 + " knights!");
+				alert("Dispute on the walls has cause some men to die!" + " You lost " + randommelee2 + " knights!");
 				meleeunits -= randommelee2
 				console.log("You lost " + randommelee2 + " knights.")
 				console.log("You currently have " + meleeunits + " knights.")
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 30 && randomfactor > 20){
-				alert("Some poor noobs has died practicing a spell and killed his fellow wizards!" + "You lost " + randommagic2 + " mages!")
+				alert("Some poor noobs has died practicing a spell and killed his fellow wizards!" + " You lost " + randommagic2 + " mages!")
 				magicunits -= randommagic2
 				console.log("You lost " + randommagic2 + " mages.")
 				console.log("You currently have " + magicunits + " mage.")
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 20 && randomfactor > 10){
-				alert("Several archers has taken an arrow to the knee during practice and will have to sit out this battle!" + "You lost " + randomrange2 + " archers!")
+				alert("Several archers has taken an arrow to the knee during practice and will have to sit out this battle!" + " You lost " + randomrange2 + " archers!")
 				rangeunits -= randomrange2
 				console.log("You lost " + randomrange2 + " archers.")
 				console.log("You currently have " + rangeunits + " archers.")
 				randomfactor = diceroll(100);
 			}
 			else if (randomfactor <= 10 && randomfactor > 0){
-				alert(" A new day, would of been a good day if you haven't slept in late.")
+				alert("A new day, would of been a good day if you haven't slept in late.")
 				randomfactor = diceroll(100);
 			}
 			else {
@@ -367,7 +379,8 @@ function starttraining(){
 		alert("Let's start training!");
 		alert("What will you train today?");
 		preparation();
-}	battle();
+}	status()
+	battle();
 }
 
 
@@ -378,8 +391,8 @@ console.log("The enemy have " + enemyarmyvalue + " troops.")
 alert("To win this battle, you must deplete the enemy troops to 0 or below, but beware, you will lose if your army value is 0 or below.")
 alert("Each turn, you will choose a unit type to send forward, if the other side unit is inferior than yours, you will get a damage multiplier, if your unit is inferior, their units will get a damage multiplier.")
 alert( "knights > archers, archers > mages, mages > knights.")
-let stopbool = true
-while (armyvalue > 0 && enemyarmyvalue > 0 && stopbool) {
+
+while (armyvalue > 0 && enemyarmyvalue > 0) {
 	turn()
 
 }
@@ -396,8 +409,7 @@ if (armyvalue <= 0 && enemyarmyvalue <= 0 ) {
 }
 
 
-gamebackgorund();
-status();
-start();
+
+
 
 
