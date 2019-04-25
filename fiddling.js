@@ -100,125 +100,12 @@
 
 // happynumber(68)
 
-let magicvalue= 400;
-let strengthvalue = 300;
-let rangevalue = 350;
-let strengthdefensevalue = 100;
-let magicdefensevalue = 70;
-let rangedefensevalue =100;
-
-let daysroll = diceroll(7);
-let randomfactor = diceroll(100);
-let randommelee = diceroll(300);
-let randommagic = diceroll(200);
-let randomrange = diceroll(250);
-let randomenemymelee = diceroll(150);
-let randomenemymagic = diceroll(80);
-let randomenemyrange = diceroll(100);
-let randommelee2 = diceroll(30)
-let randommagic2 = diceroll(10)
-let randomrange2 = diceroll(20)
-
-let enemymagic = 400 + (5 * daysroll);
-let enemystrength = 300 + (5 * daysroll);
-let enemyrange = 350 + (5 * daysroll);
-let enemystrengthdefense = 100 + (5 * daysroll);
-let enemymagicdefense = 70 + (5 * daysroll);
-let enemyrangedefense = 100 + (5 * daysroll);
-let enemymeleeunits = diceroll(1000) + 1000;
-let enemymagicunits = diceroll(1000) + 1000;
-let enemyrangeunits = diceroll(1000) + 1000;
-let meleeunits = diceroll(500) + 500;
-let magicunits = diceroll(500) + 500;
-let rangeunits = diceroll(500) + 500;
-
-let armyvalue = meleeunits + magicunits + rangeunits
-let enemyarmyvalue = enemymeleeunits + enemymagicunits + enemyrangeunits
-
-
-function knights() {
-	let enemyknights = diceroll(3)
-	if (enemyknights == 1) {
-		armyvalue -= ((enemystrength * 2) - strengthdefensevalue)
-		enemyarmyvalue -= ((strengthvalue * 2) - enemystrengthdefense)
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else if (enemyknights == 2) {
-		armyvalue -= ((enemymagic * 3) - strengthdefensevalue)
-		enemyarmyvalue -= ((strengthvalue * 2) - (enemymagicdefense * 2))
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else  {
-		armyvalue -= ((enemyrange * 2) - strengthdefensevalue)
-		enemyarmyvalue -= ((strengthvalue * 3) - enemyrangedefense)
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}
-}
-
-
-function mages() {
-	let enemymages = diceroll(3)
-	if (enemymages == 1) {
-		armyvalue -= ((enemyknights * 2)  - (magicdefensevalue * 2))
-		enemyarmyvalue -= ((magicvalue * 3) - enemystrengthdefense)
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else if (enemymages == 2) {
-		armyvalue -= ((enemyknights * 2) - (magicdefensevalue * 2))
-		enemyarmyvalue -= ((strengthvalue * 2) - (enemymagicdefense * 2))
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else  {
-		armyvalue -= ((enemyrange * 3) - magicdefensevalue)
-		enemyarmyvalue -= ((magicvalue * 2) - (enemyrangedefense * 2))
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}
-}	
-
-function archers() {
-	let enemyarchers = diceroll(3)
-	if (enemyarchers == 1) {
-		armyvalue -= ((enemyknights * 3)  - rangedefensevalue )
-		enemyarmyvalue -= ((rangevalue * 2) - (enemystrengthdefense * 2))
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else if (enemyarchers == 2) {
-		armyvalue -= ((enemymagic * 2) - (rangedefensevalue * 2))
-		enemyarmyvalue -= ((rangevalue * 3) - enemymagicdefense)
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}	else  {
-		armyvalue -= ((enemyrange * 2) - rangedefensevalue)
-		enemyarmyvalue -= ((rangevalue * 2) - enemyrangedefense)
-		console.log("You have " + armyvalue + " troops.")
-		console.log("The enemy have " + enemyarmyvalue + " troops.")
-	}
-}	
-
 function diceroll(sides) {
 	sides = parseInt(sides);
 	 return Math.floor(Math.random() * (sides) + 1);
 }
-
-function turn() {
-let whichunit = prompt("Choose either knights, mages, archers, or Stop.")
-if (whichunit == "knights"){ 
-knights();
-}	else if ( whichunit =="mages") {
-	mages();
-}	else if (whichunit =="archers") {
-	archers();
-}	else if (whichunit == "stop"){
-		
-}	else {
-	alert("Please enter knights, mages, archers, or stop!");
-	turn();
-}
-}
-
-
-while (armyvalue >= 0 && enemyarmyvalue >= 0) {
-	turn()
+function dayrolling(){
+let daysofaweek = 7
+let daysroll = diceroll(daysofaweek);
+return daysroll
 }
