@@ -1,5 +1,5 @@
-// function Game(){
-// 	let Troops = 500;
+function Game(){
+	let Troops = 500;
 
 function diceRoll(sides) {
 	sides = parseInt(sides);
@@ -14,39 +14,40 @@ let units = diceRoll(armyRoll) + extraTroops;
 return units
 }
 
-console.log(armyCalc())
 
-// 	let extraTroops = 500;
-// 	let armyRoll = 500;
-// 	let enemyArmyRoll = 1000;
-// 	let enemyBoostPerDay = 5;
-// 	let magicValue= 400;
-// 	let strengthValue = 300;
-// 	let rangeValue = 350;
-// 	let strengthDefenseValue = 100;
-// 	let magicDefenseValue = 70;
-// 	let rangeDefenseValue =100;
-// 	let daysOfaWeek = 7;
-// 	let meleeUnits = diceRoll(armyRoll) + extraTroops;
-// 	let magicUnits = diceRoll(armyRoll) + extraTroops;
-// 	let rangeUnits = diceRoll(armyRoll) + extraTroops;
-// 	let daysRoll = diceRoll(daysofaweek);
+function Game(){
+	let Troops = 500;
+	let extraTroops = 500;
+	let armyRoll = 500;
+	let enemyArmyRoll = 1000;
+	let enemyBoostPerDay = 5;
+	let magicValue= 400;
+	let strengthValue = 300;
+	let rangeValue = 350;
+	let strengthDefenseValue = 100;
+	let magicDefenseValue = 70;
+	let rangeDefenseValue =100;
+	let daysOfaWeek = 7;
+	let meleeUnits = diceRoll(armyRoll) + extraTroops;
+	let magicUnits = diceRoll(armyRoll) + extraTroops;
+	let rangeUnits = diceRoll(armyRoll) + extraTroops;
+	let daysRoll = diceRoll(daysofaweek);
 
-// 	Troop = reinforcements(Troop, 700);
+	Troops = reinforcements(Troops, 700);
 
-// 	let archers = reinforcements(archers, 600);
-
-
-
-
-// }
+	let archers = reinforcements(archers, 600);
 
 
-// function reinforcements(troops, numberToIncrease){
-// 	troops += numberToIncrease;
+}
 
-// 	return troops;
-// }
+
+
+
+function reinforcements(troops, numberToIncrease){
+	troops += numberToIncrease;
+
+	return troops;
+}
 
 
 // function 

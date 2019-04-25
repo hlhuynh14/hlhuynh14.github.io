@@ -18,7 +18,7 @@ let enemyArmyValue = totalEnemyArmy();
 function gameStart(){
 gameBackGround();
 status();
-start();
+startprompt();
 }
 
 function diceRoll(sides) {
@@ -90,7 +90,7 @@ console.log(enemyMagicUnits + " mages will be in the the enemy army.");
 console.log(enemyRangeUnits + " archers will be in the the enemy army.");
 }
 
-function start() {
+function startprompt() {
 let start = prompt("Do you wanna start training? Please Enter yes or no.");
 if (start == "yes") {
 	startTraining()
@@ -98,7 +98,7 @@ if (start == "yes") {
 	skipToBattle();
 } else {
 	alert("Please enter yes or no.");
-	start();
+	startprompt();
 }
 }
 
@@ -430,6 +430,7 @@ function magesFighting() {
 		console.log("The enemy have " + enemyArmyValue + " troops.");
 	}
 }	
+
 
 function archersFighting() {
 	let differentUnitsType = 3;

@@ -105,7 +105,11 @@ function diceroll(sides) {
 	 return Math.floor(Math.random() * (sides) + 1);
 }
 function dayrolling(){
-let daysofaweek = 7
+let daysofaweek = 7;
 let daysroll = diceroll(daysofaweek);
-return daysroll
+return daysroll;
+}
+
+function something() {
+let daysroll = dayrolling()
 }
